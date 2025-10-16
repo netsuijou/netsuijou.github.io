@@ -1,3 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Abnormal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, #C7C3D9 0%, #D29E4A 50%, #EF4B28 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            padding: 1rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            padding: 2.5rem 2rem;
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 540px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-card * {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(255,111,97,0.2);
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+
+        .tiny-gif {
+            max-height: 28px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: .25rem;
+        }
+
+        #extByfContent, #extDniContent {
+            background: rgba(239,75,40,0.07);
+            border-radius: 0.7rem;
+            margin: 0.5rem auto 1rem auto;
+            padding: 1rem;
+            max-width: 90%;
+            text-align: left;
+            font-size: 1rem;
+            display: none;
+        }
+
+        #extDniContent {
+            background: rgba(199,195,217,0.10);
+        }
+
+        /* Music Player */
+        #glenplayer02 {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            z-index: 99;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 10px;
+            border-radius: 10px;
+        }
+
+        .music-controls {
+            user-select: none;
+            width: 18px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .playy, .pausee {
+            color: #F6D5F0;
+            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+        }
+
+        .pausee { display: none; }
+
+        .sonata {
+            margin-left: 10px;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            font-size: 14px;
+            color: #F6D5F0;
+            font-weight: bold;
+            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+            max-width: 150px;
+            overflow: hidden;
+        }
+        /* Language Button */
+        #langSwitch {
+            background: rgba(0,0,0,0.4);
+            color: #F6D5F0;
+            border: none;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+        }
+
+        #langSwitch:hover {
+            background: rgba(0,0,0,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-card {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            .about-card * {
+                font-size: 1.2rem;
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            .tiny-gif {
+                max-height: 22px;
+            }
+            .sonata {
+                font-size: 12px;
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-card {
+                padding: 1rem;
+                margin: 1rem auto;
+                border-radius: 1rem;
+            }
+            .about-card * {
+                font-size: 1rem;
+            }
+            .profile-img {
+                width: 90px;
+                height: 90px;
+            }
+            #glenplayer02 {
+                bottom: 5px;
+                left: 5px;
+                padding: 4px 6px;
+            }
+        }
+    </style>
+    </head>
+
+<body>
+    <div class="text-center mt-3">
+        <button id="langSwitch">日本語 / English</button>
+    </div>
+
+    <div class="container">
+        <div class="about-card text-center">
+            <img src="https://images.steamusercontent.com/ugc/2005845300445677459/84089D17CC3416ACAA17C9B9A1BA7B2010A27F4F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Profile" class="profile-img mb-3">
+            
+            <div><b id="name">RAIN</b> or <i id="alias">paint</i></div>
+            <div class="mb-2" id="infoLine">
+                <img src="https://files.catbox.moe/olkr2n.gif" alt="hearts" class="tiny-gif">
+                18 / she / <a href="/">any neos</a>
+            </div>
+            <div class="mb-2" id="desc">
+                . ˚₊ white disabled audhd
+                <img src="https://files.catbox.moe/3z4kiv.gif" alt="angry" class="tiny-gif">
+            </div>
+            <div class="mb-3">
+                <a href="https://honaena.straw.page">sp & art</a> ⊹ 
+                <a href="#" id="extByfToggle"><em>ext byf</em></a> ⊹ 
+                <a href="#" id="extDniToggle">ext dni</a>
+            </div>
+
+            <div id="extByfContent">
+                Please cw eroguro. I go ia sometimes because of college and my physical health. I have a lot of disorders that I'm not comfortable listing here, but feel free to ask if you want to know more. I occasionally refer to myself in plural, but it's just me. I multiship, mainly cross niigo & leoneed.
+            </div>
+
+            <div id="extDniContent">
+                DNI if you fit the following: proship, interact with/on shedtwt or drugtwt, dislike polyniigo/polyneed, pro-israel, nsfw, 25+ or below 15, make slitting/starving/rape "jokes", use the r slur, tldr if you ragebait get away from me, heavily possessive over oshis/yumes to the point of harassing others.
+            </div>
+        </div>
+    </div>
+    <div id="glenplayer02">
+        <div class="music-controls" onclick="songstart();">
+            <div class="playy">▶</div>
+            <div class="pausee">♬</div>
+        </div>
+        <div class="sonata" id="sonata"><marquee>Heat Abnormal - Iyowa</marquee></div>
+    </div>
+    <audio id="tune" src="https://files.catbox.moe/2zl3l5.mp3"></audio>
+
+    <script>
+        // Toggle BYF and DNI visibility
+        const byfToggle = document.getElementById('extByfToggle');
+        const dniToggle = document.getElementById('extDniToggle');
+        const byfContent = document.getElementById('extByfContent');
+        const dniContent = document.getElementById('extDniContent');
+
+        byfToggle.addEventListener('click', e => {
+            e.preventDefault();
+            byfContent.style.display = byfContent.style.display === 'block' ? 'none' : 'block';
+            dniContent.style.display = 'none';
+        });
+
+        dniToggle.addEventListener('click', e => {
+            e.preventDefault();
+            dniContent.style.display = dniContent.style.display === 'block' ? 'none' : 'block';
+            byfContent.style.display = 'none';
+        });
+
+        // Music player logic
+        const tune = document.getElementById('tune');
+        const playBtn = document.querySelector('.playy');
+        const pauseBtn = document.querySelector('.pausee');
+
+        function songstart() {
+            if (tune.paused) {
+                tune.play();
+                playBtn.style.display = 'none';
                 pauseBtn.style.display = 'inline';
             } else {
                 tune.pause();
@@ -5,8 +239,7 @@
                 pauseBtn.style.display = 'none';
             }
         }
-
-        // Language toggle
+              // Language toggle
         let currentLang = 'en';
 
         const translations = {
