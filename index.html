@@ -205,5 +205,22 @@
             byfContent.style.display = 'none';
         });
     </script>
+    <script>
+    const tune = document.getElementById('tune');
+    const playBtn = document.querySelector('.playy');
+    const pauseBtn = document.querySelector('.pausee');
+
+    function songstart() {
+        if (tune.paused) {
+            tune.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline';
+        } else {
+            tune.pause();
+            playBtn.style.display = 'inline';
+            pauseBtn.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
