@@ -20,12 +20,12 @@
             border-radius: 1.5rem;
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
             padding: 2.5rem 2rem;
+            margin: 2rem auto;
             width: 100%;
             max-width: 540px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0;
         }
 
         .about-card * {
@@ -143,13 +143,13 @@
                 left: 5px;
                 padding: 4px 6px;
             }
+            
         }
     </style>
 </head>
 
 <body>
-    <!-- Slightly Higher Placement -->
-    <div class="container d-flex justify-content-center align-items-start flex-column" style="min-height: 100vh; padding-top: 10vh;">
+    <div class="container">
         <div class="about-card text-center">
             <img src="https://images.steamusercontent.com/ugc/2005845300445677459/84089D17CC3416ACAA17C9B9A1BA7B2010A27F4F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Profile" class="profile-img mb-3">
             <div><b>RAIN</b> or <i>paint</i></div>
@@ -177,7 +177,6 @@
         </div>
     </div>
 
-    <!-- Music Player -->
     <div id="glenplayer02">
         <div class="music-controls" onclick="songstart();">
             <div class="playy">▶</div>
@@ -205,23 +204,23 @@
             dniContent.style.display = dniContent.style.display === 'block' ? 'none' : 'block';
             byfContent.style.display = 'none';
         });
-
-        // Music Player
-        const tune = document.getElementById('tune');
-        const playBtn = document.querySelector('.playy');
-        const pauseBtn = document.querySelector('.pausee');
-
-        function songstart() {
-            if (tune.paused) {
-                tune.play();
-                playBtn.style.display = 'none';
-                pauseBtn.style.display = 'inline';
-            } else {
-                tune.pause();
-                playBtn.style.display = 'inline';
-                pauseBtn.style.display = 'none';
-            }
-        }
     </script>
+    <script>
+    const tune = document.getElementById('tune');
+    const playBtn = document.querySelector('.playy');
+    const pauseBtn = document.querySelector('.pausee');
+
+    function songstart() {
+        if (tune.paused) {
+            tune.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline';
+        } else {
+            tune.pause();
+            playBtn.style.display = 'inline';
+            pauseBtn.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
