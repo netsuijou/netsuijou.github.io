@@ -114,9 +114,6 @@
             text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
         }
 
-        #langSwitch:hover {
-            background: rgba(0,0,0,0.6);
-        }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -163,9 +160,6 @@
     </head>
 
 <body>
-    <div class="text-center mt-3">
-        <button id="langSwitch">日本語 / English</button>
-    </div>
 
     <div class="container">
         <div class="about-card text-center">
@@ -197,7 +191,7 @@
     </div>
     <div id="glenplayer02">
         <div class="music-controls" onclick="songstart();">
-            <div class="playy">▶</div>
+            <div class="playy">▸</div>
             <div class="pausee">♬</div>
         </div>
         <div class="sonata" id="sonata"><marquee>Heat Abnormal - Iyowa</marquee></div>
@@ -239,41 +233,7 @@
                 pauseBtn.style.display = 'none';
             }
         }
-              // Language toggle
-        let currentLang = 'en';
-
-        const translations = {
-            name: { en: "RAIN", jp: "レイン" },
-            alias: { en: "paint", jp: "ペイント" },
-            infoLine: {
-                en: `<img src="https://files.catbox.moe/olkr2n.gif" alt="hearts" class="tiny-gif"> 18 / she / <a href="/">any neos</a>`,
-                jp: `<img src="https://files.catbox.moe/olkr2n.gif" alt="hearts" class="tiny-gif"> 18歳 / 彼女 `
-            },
-            desc: {
-                en: `. ˚₊ white disabled audhd <img src="https://files.catbox.moe/3z4kiv.gif" alt="angry" class="tiny-gif">`,
-                jp: `白人・障害あり・発達神経多様性 <img src="https://files.catbox.moe/3z4kiv.gif" alt="angry" class="tiny-gif">`
-            },
-            extByfContent: {
-                en: "Please cw eroguro. I go ia sometimes because of college and my physical health. I have a lot of disorders that I'm not comfortable listing here, but feel free to ask if you want to know more. I occasionally refer to myself in plural, but it's just me. I multiship, mainly cross niigo & leoneed.",
-                jp: "エロ・グロ表現は苦手です。見かけた場合はミュート・ブロックすることがあります。大学や体調の都合で時々低浮上になります。持病はいくつかありますが、ここで詳しく書くのは控えます。クロスニーゴとレオニード中心に複数カプを好みます。"
-            },
-            extDniContent: {
-                en: "DNI if you fit the following: proship, interact with/on shedtwt or drugtwt, dislike polyniigo/polyneed, pro-israel, nsfw, 25+ or below 15, make slitting/starving/rape 'jokes', use the r slur, tldr if you ragebait get away from me, heavily possessive over oshis/yumes to the point of harassing others.",
-                jp: "以下の内容に該当する方との交流はご遠慮いただいております：プロシップを支持されている方、shedtwt・drugtwt関連の投稿や交流をされている方、ポリニーゴ／ポリニードに否定的なご意見をお持ちの方、イスラエル支持の立場を取られている方、NSFW（性的・過激な内容）を含む投稿をされる方、15歳未満または25歳以上の方、自傷行為・絶食・性的暴力を軽視・揶揄するような表現をされる方、Rスラング（差別的な言葉）を使用される方、推しや夢思考に過度に執着し、他者に対して攻撃的な言動をされる方。挑発的・攻撃的な目的での接触は固くお断りいたします。"
-            },
-            sonata: {
-                en: "<marquee>Heat Abnormal - Iyowa</marquee>",
-                jp: "<marquee>熱異常 - いよわ</marquee>"
-            }
-        };
-
-        document.getElementById('langSwitch').addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'jp' : 'en';
-            for (const id in translations) {
-                const el = document.getElementById(id);
-                if (el) el.innerHTML = translations[id][currentLang];
-            }
-        });
+             
     </script>
 </body>
 </html>
